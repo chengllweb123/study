@@ -1,17 +1,29 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// import jsonp from 'jsonp';
 
 export default {
   name: 'App',
+  data(){
+    return {
+    }
+  },
+  mounted(){
+   // jsonp的方式跨域
+    // let url="/api/common/adver-getadver";
+    // jsonp(url,(err,res)=>{
+    //   let result=res;
+    //   this.list=result;
+    //   console.log(123,err,result)
+
+    // })
+  },
   components: {
-    HelloWorld
   }
 }
 </script>
