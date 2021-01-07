@@ -1,0 +1,21 @@
+// flex布局应用
+@mixin flex($hov:space-between,$col:center,$r:row){
+    display: flex;
+    justify-content: $hov;
+    align-items: $col;
+    flex-direction: r;
+}
+@mixin bgImg($w:0,$h:0,$img:'',$size:contain){
+    display: inline-block;
+    width: $w;
+    height: $h;
+    background: url($img) no-repeat center;
+    background-size: $size;
+}
+@mixin position($pos:'absolute',$top:0,$left:0,$w:100%,$h:100%){
+    position: $pos;
+    top:$top;
+    left:$left;
+    width: $w;
+    height: $h;
+}
