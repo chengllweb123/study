@@ -2,7 +2,7 @@
     <div class="nav-bar" :class="{is_fixed:isFixed}">
         <div class="container">
             <div class="pro-title">
-                小米8 透明探索版
+               {{title}}
             </div>
             <div class="pro-param">
                 <a href="">概述</a><span>|</span>
@@ -16,6 +16,7 @@
 <script>
     export default{
         name:'nav-bar',
+        props:["title"],
         data(){
             return {
                 isFixed:false
