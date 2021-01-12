@@ -12,18 +12,18 @@
                         <span class="checked">帐号登录</span><span class="sep-line">|</span><span>扫码登录</span>
                     </h3>
                     <div class="input">
-                        <input type="text" placeholder="请输入账号">
+                        <input type="text" placeholder="请输入账号"  v-model="username" >
                     </div>
                     <div class="input">
-                        <input type="password" placeholder="请输入密码">
+                        <input type="password" placeholder="请输入密码" v-model="password" >
                     </div>
                     <div class="btn-box">
-                        <a href="javascript:;" class="btn">
+                        <a href="javascript:;" class="btn" @click="login">
                            登录
                         </a>
                     </div>
                     <div class="tips">
-                        <div class="tips-left">
+                        <div class="tips-left" @click="register">
                             手机短信登录/注册
                         </div>   
                         <div  class="tips-right">
@@ -48,7 +48,42 @@
     </div>
 </template>
 <script>
+import { mapActions } from "vuex";
 export default{
+   
+    name:"login",
+    data(){
+        return{
+            username:"",
+            password:""
+        }
+    },
+    methods:{
+        login(){
+            let {username,password}=this;
+            this.axios.post("/user/login",{
+                username,
+                password
+            }).then((res)=>{
+                console.log("成功");
+                this.$cookie.set("userId",res.id,{expires:"1M"});
+                // this.$store.dispatch("saveUserName",res.username);
+                this.saveUserName(res.username);
+                this.$router.push("/index");
+            })
+        },
+        ...mapActions(["saveUserName"]),
+        register(){
+            // this.axios.post("/user/register",{
+            //     username:"admin123",
+            //     password:"admin123",
+            //     email:"admin123@163.com"
+            // }).then(()=>{
+            //    alert("注册成功");
+            // })
+
+        }
+    }
 
 }
 </script>
