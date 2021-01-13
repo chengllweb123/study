@@ -43,6 +43,7 @@
         line-height: 70px;
         background-color: #fff;
         box-shadow: 0 5px 5px #ccc;
+        z-index:10;
         &.is_fixed{
             position: fixed;
             top:0;

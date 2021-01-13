@@ -151,38 +151,6 @@
                 height:112px;
                 position: relative;
                 @include flex();
-                .header-logo{
-                    display: inline-block;
-                    width:55px;
-                    height:55px;
-                    background:#FF6600;
-                    a{
-                        display: inline-block;
-                        width:110px;
-                        &:before{
-                            content:'';
-                            display: inline-block;
-                            width:55px;
-                            height: 55px;
-                            background:url('/imgs/mi-logo.png') no-repeat center;
-                            background-size:55px;
-                            transition: margin 0.2s;
-                        }
-                        &:after{
-                            content:'';
-                            display: inline-block;
-                            width:55px;
-                            height: 55px;
-                            background:url('/imgs/mi-home.png') no-repeat center;
-                            background-size:55px; 
-                        }
-                        &:hover:before{
-                            margin-left:-55px;
-                            transition: margin 0.2s;
-                        }
-
-                    }
-                }
                 .header-menu{
                     display: inline-block;
                     padding-left: 209px;
