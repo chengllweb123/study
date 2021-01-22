@@ -4,7 +4,7 @@ import mutations from "./mutations"
 import actions from "./actions"
 Vue.use(Vuex);
 const state={
-    username:"",//用户名
+    username:"", //用户名
     cartCount:2 //购物车商品数量
 
 }
