@@ -19,6 +19,11 @@
               </symbol>
             </defs>
         </svg>
+        <order-header title="订单确认">
+            <template v-slot:tip>
+                <span>请仔细填写收获地址</span>
+            </template>
+        </order-header>
         <div class="wrapper">
             <div class="container">
                 <div class="order-box">
@@ -118,13 +123,16 @@
                     </div>
                     <div class="item">
                         <select name="provnice" v-model="checkedItem.receiverProvince">
+                            <option value="0">请选择</option>
                             <option value="北京">北京</option>
                             <option value="山东">山东</option>
                         </select>
                         <select name="city" v-model="checkedItem.receiverCity">
+                            <option value="0">请选择</option>
                             <option value="济南">济南</option>
                         </select>
                         <select name="district" v-model="checkedItem.receiverDistrict">
+                            <option value="0">请选择</option>
                             <option value="历下">历下</option>
                             <option value="历城">历城</option>
                             <option value="章丘">章丘</option>
@@ -143,6 +151,7 @@
 </template>
 <script>
     import Modal from "./../components/Modal"
+    import OrderHeader from "./../components/OrderHeader"
     export default{
         name:'order-confirm',
         data(){
@@ -193,7 +202,11 @@
 
             },
             addAress(){
-                this.checkedItem={};
+                this.checkedItem={
+                    receiverProvince:0,
+                    receiverCity:0,
+                    receiverDistrict:0
+                };
                 this.showEditModal=true;
                 this.title="新增地址";
                 this.userAction=0;
@@ -296,7 +309,8 @@
             }
         },
         components:{
-            Modal
+            Modal,
+            OrderHeader
         }
       
     }
@@ -476,6 +490,49 @@
                }
             }
          
+        }
+        .edit-wrap{
+            box-sizing: border-box;
+            padding:20px 0;
+            width:100%;
+            .item{
+                margin-bottom:10px;
+            }
+            input{
+                width:48%;
+                height:42px;
+                line-height:42px;
+                border:1px solid #E5E5E5;
+                box-sizing:border-box;
+                padding-left:10px;
+                color:#999;
+                &+input{
+                    margin-left:4%;
+                }
+
+            }
+            select{
+                width:20%;
+                height:42px;
+                line-height:42px;
+                border:1px solid #E5E5E5;
+                box-sizing:border-box;
+                padding-left:10px;
+                color:#999;
+                &+select{
+                    margin-left:4%;
+                }
+            }
+            textarea{
+                width:100%;
+                height: 50px;
+                border:1px solid #E5E5E5;
+                box-sizing:border-box;
+                padding-left:10px;
+                padding-top:10px;
+                color:#999;
+            }
+
         }
        
     }
